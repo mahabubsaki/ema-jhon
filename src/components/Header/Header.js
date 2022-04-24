@@ -32,6 +32,10 @@ const Header = () => {
     const handleButton = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
+    const handlePage = (e) => {
+        setCurrentPage(1)
+        setPageSize(e.target.value)
+    }
     const deleteCart = () => {
         localStorage.removeItem('cart')
         setCart([])
@@ -68,7 +72,7 @@ const Header = () => {
                         }
                     </div>
                     <div className="page-size-container">
-                        <select onChange={(e) => setPageSize(e.target.value)}>
+                        <select onChange={handlePage}>
                             <option value="5">5</option>
                             <option value="10" selected>10</option>
                             <option value="15">15</option>
