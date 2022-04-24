@@ -1,15 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
-import useProducts from '../Hooks/useProducts';
 import OverViewSingleItem from '../OverviewSingleItem/OverViewSingleItem';
 import { deleteSingleItem, getCart } from '../utilities/db';
 import './Overview.css'
 
 const Overview = () => {
     const [cart, setCart] = useCart()
-    console.log(cart);
     const deleteCart = () => {
         localStorage.removeItem('cart')
         setCart([])
@@ -19,21 +17,32 @@ const Overview = () => {
         const rest = cart.filter(pd => pd._id !== product._id)
         setCart(rest)
     }
-    // const handleQuantity = (givenQuantity, id) => {
-    //     const cart = getCart()
-    //     cart[id] = givenQuantity
-    //     let storedCart = []
-    //     for (let id in cart) {
-    //         const findById = products.find(p => p._id === id)
-    //         if (findById) {
-    //             const quantity = cart[id]
-    //             findById.quantity = quantity
-    //             storedCart.push(findById)
-    //         }
-    //         setCart(storedCart)
-    //     }
-    //     localStorage.setItem('cart', JSON.stringify(cart))
-    // }
+    const handleQuantity = (givenQuantity, id) => {
+        const storageCart = getCart()
+        storageCart[id] = givenQuantity
+        localStorage.setItem('cart', JSON.stringify(storageCart))
+        console.log(storageCart);
+        let storedCart = []
+        const keys = Object.keys(storageCart)
+        console.log(keys)
+        // fetch('http://localhost:5000/productFindByKey', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(keys)
+        // })
+        //     .then(response => response.json())
+        //     .then(products => {
+        //         for (let id in storageCart) {
+        //             const findById = products.find(p => p._id === id)
+        //             if (findById) {
+        //                 const quantity = storedCart[id]
+        //                 findById.quantity = quantity
+        //                 storedCart.push(findById)
+        //             }
+        //             setCart(storedCart)
+        //         }
+        //     })
+    }
     return (
         <div>
             <div className="header">
@@ -41,7 +50,7 @@ const Overview = () => {
                     <div className="overview">
                         {
                             cart.map(pd => <OverViewSingleItem item={pd} key={pd._id} handleSingleDelete={handleSingleDelete}
-                            // handleQuantity={handleQuantity}
+                                handleQuantity={handleQuantity}
                             ></OverViewSingleItem>)
                         }
                     </div>

@@ -67,10 +67,10 @@ const Header = () => {
         })
             .then(response => response.json())
             .then(products => {
-                for (let id in storedCart) {
+                for (let id in storageCart) {
                     const findById = products.find(p => p._id === id)
                     if (findById) {
-                        const quantity = storedCart[id]
+                        const quantity = storageCart[id]
                         findById.quantity = quantity
                         storedCart.push(findById)
                     }

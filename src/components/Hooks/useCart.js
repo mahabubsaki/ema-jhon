@@ -21,11 +21,10 @@ const useCart = () => {
                         findById.quantity = quantity
                         storedCart.push(findById)
                     }
-                    setCart(storedCart)
                 }
+                setCart(storedCart)
             })
     }, [])
-
     return [cart, setCart]
 }
 export default useCart
