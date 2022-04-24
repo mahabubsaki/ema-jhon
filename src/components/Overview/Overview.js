@@ -24,7 +24,6 @@ const Overview = () => {
         console.log(storageCart);
         let storedCart = []
         const keys = Object.keys(storageCart)
-        console.log(keys)
         fetch('http://localhost:5000/productFindByKey', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
