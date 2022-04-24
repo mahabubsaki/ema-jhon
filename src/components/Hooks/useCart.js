@@ -7,7 +7,7 @@ const useCart = (products) => {
         const cart = getCart()
         let storedCart = []
         for (let id in cart) {
-            const findById = products.find(p => p.id === id)
+            const findById = products.find(p => p._id === id)
             if (findById) {
                 const quantity = cart[id]
                 findById.quantity = quantity

@@ -16,18 +16,18 @@ const Header = () => {
     }
     const handleOnClick = (selectedProduct) => {
         let newArray = []
-        const exists = cart.find(p => p.id === selectedProduct.id)
+        const exists = cart.find(p => p.id === selectedProduct._id)
         if (!exists) {
             selectedProduct.quantity = 1
             newArray = [...cart, selectedProduct]
         }
         else {
-            const rest = cart.filter(p => p.id !== selectedProduct.id)
+            const rest = cart.filter(p => p.id !== selectedProduct._id)
             exists.quantity = exists.quantity + 1
             newArray = [...rest, exists]
         }
         setCart(newArray)
-        addToBd(selectedProduct.id)
+        addToBd(selectedProduct._id)
     }
     return (
         <div>
@@ -36,7 +36,7 @@ const Header = () => {
                     <h1>Products Available: {products.length}</h1>
                     <div className='all-products'>
                         {
-                            products.map(product => <SingleProduct product={product} key={product.id} handleOnClick={handleOnClick}></SingleProduct>)
+                            products.map(product => <SingleProduct product={product} key={product._id} handleOnClick={handleOnClick}></SingleProduct>)
                         }
                     </div>
 

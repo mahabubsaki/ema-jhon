@@ -8,12 +8,12 @@ const OverViewSingleItem = ({ item, handleSingleDelete, handleQuantity }) => {
     const [myQuantity, setMyQuantity] = useState(quantity)
     const increaseQuantity = (item) => {
         setMyQuantity(myQuantity + 1)
-        handleQuantity(myQuantity + 1, item.id)
+        handleQuantity(myQuantity + 1, item._id)
     }
     const decreaseQuantity = (item) => {
         if (myQuantity > 1) {
             setMyQuantity(myQuantity - 1)
-            handleQuantity(myQuantity - 1, item.id)
+            handleQuantity(myQuantity - 1, item._id)
         }
     }
     return (

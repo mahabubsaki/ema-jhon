@@ -15,8 +15,8 @@ const Overview = () => {
         setCart([])
     }
     const handleSingleDelete = (product) => {
-        deleteSingleItem(product.id)
-        const rest = cart.filter(pd => pd.id !== product.id)
+        deleteSingleItem(product._id)
+        const rest = cart.filter(pd => pd._id !== product._id)
         setCart(rest)
     }
     const handleQuantity = (givenQuantity, id) => {
@@ -24,7 +24,7 @@ const Overview = () => {
         cart[id] = givenQuantity
         let storedCart = []
         for (let id in cart) {
-            const findById = products.find(p => p.id === id)
+            const findById = products.find(p => p._id === id)
             if (findById) {
                 const quantity = cart[id]
                 findById.quantity = quantity
@@ -40,7 +40,7 @@ const Overview = () => {
                 <div className="overview-container">
                     <div className="overview">
                         {
-                            cart.map(pd => <OverViewSingleItem item={pd} key={pd.id} handleSingleDelete={handleSingleDelete}
+                            cart.map(pd => <OverViewSingleItem item={pd} key={pd._id} handleSingleDelete={handleSingleDelete}
                                 handleQuantity={handleQuantity}
                             ></OverViewSingleItem>)
                         }
