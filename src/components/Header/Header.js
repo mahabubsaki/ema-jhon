@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
 import useProducts from '../Hooks/useProducts';
+import PageButton from '../PageButton/PageButton';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import { addToBd } from '../utilities/db';
 import './Header.css'
@@ -51,6 +52,11 @@ const Header = () => {
                     <div className='all-products'>
                         {
                             products.map(product => <SingleProduct product={product} key={product._id} handleOnClick={handleOnClick}></SingleProduct>)
+                        }
+                    </div>
+                    <div className="all-buttons">
+                        {
+                            pageCount.map(page => <PageButton key={page} >{page}</PageButton>)
                         }
                     </div>
                 </div>
