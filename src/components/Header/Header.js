@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
+import useProducts from '../Hooks/useProducts';
 import PageButton from '../PageButton/PageButton';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import { addToBd } from '../utilities/db';
@@ -9,7 +10,8 @@ import './Header.css'
 
 const Header = () => {
     const [products, setProducts] = useState([])
-    const [cart, setCart] = useCart(products)
+    const [cart, setCart] = useCart()
+    console.log(cart);
     const [pageCount, setPageCount] = useState([])
     const [pageSize, setPageSize] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)

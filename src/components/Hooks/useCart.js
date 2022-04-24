@@ -14,7 +14,6 @@ const useCart = () => {
         })
             .then(response => response.json())
             .then(products => {
-                console.log(products);
                 for (let id in storedCart) {
                     const findById = products.find(p => p._id === id)
                     if (findById) {
@@ -25,7 +24,8 @@ const useCart = () => {
                     setCart(storedCart)
                 }
             })
-    }, [])
+    }, [cart])
+    console.log(cart);
     return [cart, setCart]
 }
 export default useCart
