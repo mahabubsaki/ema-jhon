@@ -23,7 +23,10 @@ const Header = () => {
                 setPageCount(array)
             })
     }, [])
-    console.log(pageCount)
+    const [currentPage, setCurrentPage] = useState(1)
+    const handleButton = (pageNumber) => {
+        setCurrentPage(pageNumber)
+    }
     const deleteCart = () => {
         localStorage.removeItem('cart')
         setCart([])
@@ -56,7 +59,7 @@ const Header = () => {
                     </div>
                     <div className="all-buttons">
                         {
-                            pageCount.map(page => <PageButton key={page} >{page}</PageButton>)
+                            pageCount.map(page => <PageButton key={page} handleButton={handleButton} currentPage={currentPage}>{page}</PageButton>)
                         }
                     </div>
                 </div>

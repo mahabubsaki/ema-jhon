@@ -1,8 +1,8 @@
 import React from 'react';
 
-const PageButton = ({ children }) => {
+const PageButton = ({ children, handleButton, currentPage }) => {
     return (
-        <button>{children}</button>
+        <button onClick={() => handleButton(children)} className={`${children === currentPage ? 'selected' : ''}`}>{children}</button>
     );
 };
 
