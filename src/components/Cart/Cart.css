@@ -1,0 +1,29 @@
+.cart-container {
+    width: 25%;
+    height: auto;
+    background-color: #E83A14;
+    padding-left: 10px;
+}
+.cart-container h1 {
+    text-align: center;
+}
+.cart-container h2 {
+    text-align: left;
+}
+.info-wrapper {
+    position:sticky;
+    top: 0px;
+    width: 100%;
+}
+.info-wrapper button{
+    width: 80%;
+    background-color: #D9CE3F;
+    border:1px solid #D9CE3F;
+    padding:10px;
+    cursor: pointer;
+    margin: 0 auto 10px auto;
+}
+.info-wrapper button:hover{
+    background-color: transparent;
+    transition: all 0.5s linear;
+}

@@ -1,0 +1,33 @@
+.single-product {
+    position: relative;
+    border:1px solid #E83A14;
+    border-radius: 10px;
+}
+.single-product img{
+    width: 100%;
+    border-radius: 10px;
+    height : 300px;
+}
+.single-product button{
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    background-color:#E83A14;
+    border:none;
+    padding: 10px 0px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top:1px solid #E83A14;
+    font-size: 20px;
+    cursor: pointer;
+}
+.single-product button:hover{
+    background-color:transparent;
+    transition: all .5s ease-in-out;
+}
+.info-div {
+    padding-bottom: 40px;
+}
+.img-div{
+    padding: 5px 5px 0px 5px;
+}

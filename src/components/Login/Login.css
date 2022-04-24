@@ -1,0 +1,120 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: inset 10px -10px 5px rgba(255, 224, 179, 1);
+  width: 500px;
+  margin: 0 auto;
+}
+.form-div {
+  border: 1px solid #95a0a7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 40px;
+}
+.form-div h1 {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  letter-spacing: 0.0025em;
+  color: #2a414f;
+}
+.email-div {
+  width: 415px;
+  margin-bottom: 20px;
+}
+.email-div label {
+  display: block;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: 0.0015em;
+
+  color: #2a414f;
+}
+.email-div input {
+  width: 98%;
+  padding: 10px 5px;
+  border-radius: 8px;
+  border: 1px solid rgba(149, 160, 167, 1);
+}
+.form-div .login {
+  margin-top: 24px;
+  background: rgba(255, 153, 0, 0.3);
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  padding: 15px 0px;
+  border-radius: 5px;
+  margin-bottom: 9px;
+}
+.form-div .login:hover {
+  background: rgba(255, 153, 0, 0.6);
+  transition: all 0.5s ease-in-out;
+}
+.form-div p,
+a {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  /* identical to box height */
+
+  letter-spacing: 0.0025em;
+
+  color: #2a414f;
+}
+.form-div a {
+  text-decoration: none;
+  color: #ff9900;
+}
+.hr-div {
+  width: 80%;
+  margin: 5px 0px;
+}
+.hr-div p {
+  color: rgba(149, 160, 167, 1);
+}
+.or {
+  display: flex;
+  flex-direction: row;
+}
+.or:before,
+.or:after {
+  content: '';
+  flex: 1 1;
+  border-bottom: 1px solid rgba(149, 160, 167, 1);
+  margin: auto;
+}
+.or:before {
+  margin-right: 10px;
+}
+.or:after {
+  margin-left: 10px;
+}
+.google {
+  margin-top: 24px;
+  background: rgba(255, 255, 255, 1);
+  width: 100%;
+  border: 1px solid rgba(149, 160, 167, 1);
+  cursor: pointer;
+  padding: 15px 0px;
+  border-radius: 5px;
+  margin-bottom: 9px;
+}
+.google:hover {
+  background: rgba(149, 160, 167, 1);
+  border: 1px solid rgba(149, 160, 167, 0.5);
+}
+.loading {
+  display: flex;
+  justify-content: center;
+}

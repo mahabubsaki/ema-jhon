@@ -1,0 +1,28 @@
+.header {
+    display:flex;
+}
+.products-container {
+    width: 75%;
+    background-color: #F7CCAC;
+    padding: 0px 10px;
+}
+.products-container h1,h2 {
+    text-align: center;
+}
+.all-products {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+.proceed-to-overview{
+    width: 80%;
+    background-color: #82eb82 !important;
+    border:1px solid #82eb82 !important;
+    padding:10px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+.proceed-to-overview:hover{
+    background-color: transparent !important;
+    transition: all 0.5s linear !important
+}
