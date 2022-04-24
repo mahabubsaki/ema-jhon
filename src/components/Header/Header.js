@@ -5,13 +5,12 @@ import useCart from '../Hooks/useCart';
 import useProducts from '../Hooks/useProducts';
 import PageButton from '../PageButton/PageButton';
 import SingleProduct from '../SingleProduct/SingleProduct';
-import { addToBd } from '../utilities/db';
+import { addToBd, getCart } from '../utilities/db';
 import './Header.css'
 
 const Header = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useCart()
-    console.log(cart);
     const [pageCount, setPageCount] = useState([])
     const [pageSize, setPageSize] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
@@ -44,19 +43,41 @@ const Header = () => {
     }
     const handleOnClick = (selectedProduct) => {
         let newArray = []
-        const exists = cart.find(p => p.id === selectedProduct._id)
+        const exists = cart.find(p => p._id === selectedProduct._id)
         if (!exists) {
             selectedProduct.quantity = 1
             newArray = [...cart, selectedProduct]
         }
         else {
-            const rest = cart.filter(p => p.id !== selectedProduct._id)
+            const rest = cart.filter(p => p._id !== selectedProduct._id)
             exists.quantity = exists.quantity + 1
             newArray = [...rest, exists]
         }
         setCart(newArray)
         addToBd(selectedProduct._id)
     }
+    useEffect(() => {
+        const storageCart = getCart()
+        let storedCart = []
+        const keys = Object.keys(storageCart)
+        fetch('http://localhost:5000/productFindByKey', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(keys)
+        })
+            .then(response => response.json())
+            .then(products => {
+                for (let id in storedCart) {
+                    const findById = products.find(p => p._id === id)
+                    if (findById) {
+                        const quantity = storedCart[id]
+                        findById.quantity = quantity
+                        storedCart.push(findById)
+                    }
+                    setCart(storedCart)
+                }
+            })
+    }, [setCart])
     return (
         <div>
             <div className="header">
