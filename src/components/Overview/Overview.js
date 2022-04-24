@@ -25,23 +25,23 @@ const Overview = () => {
         let storedCart = []
         const keys = Object.keys(storageCart)
         console.log(keys)
-        // fetch('http://localhost:5000/productFindByKey', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(keys)
-        // })
-        //     .then(response => response.json())
-        //     .then(products => {
-        //         for (let id in storageCart) {
-        //             const findById = products.find(p => p._id === id)
-        //             if (findById) {
-        //                 const quantity = storedCart[id]
-        //                 findById.quantity = quantity
-        //                 storedCart.push(findById)
-        //             }
-        //             setCart(storedCart)
-        //         }
-        //     })
+        fetch('http://localhost:5000/productFindByKey', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(keys)
+        })
+            .then(response => response.json())
+            .then(products => {
+                for (let id in storageCart) {
+                    const findById = products.find(p => p._id === id)
+                    if (findById) {
+                        const quantity = storageCart[id]
+                        findById.quantity = quantity
+                        storedCart.push(findById)
+                    }
+                }
+                setCart(storedCart)
+            })
     }
     return (
         <div>
