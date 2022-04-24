@@ -2,28 +2,33 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
-import useProducts from '../Hooks/useProducts';
 import PageButton from '../PageButton/PageButton';
 import SingleProduct from '../SingleProduct/SingleProduct';
 import { addToBd } from '../utilities/db';
 import './Header.css'
 
 const Header = () => {
-    const [products,] = useProducts()
+    const [products, setProducts] = useState([])
     const [cart, setCart] = useCart(products)
     const [pageCount, setPageCount] = useState([])
+    const [pageSize, setPageSize] = useState(10)
+    const [currentPage, setCurrentPage] = useState(1)
     useEffect(() => {
         fetch('http://localhost:5000/productsCount')
             .then(response => response.json())
             .then(data => {
                 const array = []
-                for (let i = 1; i <= Math.ceil(data.count / 10); i++) {
+                for (let i = 1; i <= Math.ceil(data.count / pageSize); i++) {
                     array.push(i)
                 }
                 setPageCount(array)
             })
-    }, [])
-    const [currentPage, setCurrentPage] = useState(1)
+    }, [pageSize])
+    useEffect(() => {
+        fetch(`http://localhost:5000/products?page=${currentPage}&size=${pageSize}`)
+            .then(res => res.json())
+            .then(data => setProducts(data))
+    }, [currentPage, pageSize])
     const handleButton = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
@@ -61,6 +66,14 @@ const Header = () => {
                         {
                             pageCount.map(page => <PageButton key={page} handleButton={handleButton} currentPage={currentPage}>{page}</PageButton>)
                         }
+                    </div>
+                    <div className="page-size-container">
+                        <select onChange={(e) => setPageSize(e.target.value)}>
+                            <option value="5">5</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
                     </div>
                 </div>
                 <Cart products={cart} deleteCart={deleteCart}>
