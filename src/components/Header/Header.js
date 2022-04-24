@@ -7,7 +7,7 @@ import { addToBd } from '../utilities/db';
 import './Header.css'
 
 const Header = () => {
-    const [products, setProducts] = useProducts()
+    const [products,] = useProducts()
     const [cart, setCart] = useCart(products)
 
     const deleteCart = () => {
