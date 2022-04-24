@@ -25,7 +25,7 @@ const Header = () => {
             })
     }, [pageSize])
     useEffect(() => {
-        fetch(`http://localhost:5000/products?page=${currentPage}&size=${pageSize}`)
+        fetch(`http://localhost:5000/products?page=${currentPage - 1}&size=${pageSize}`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [currentPage, pageSize])
@@ -72,9 +72,9 @@ const Header = () => {
                         }
                     </div>
                     <div className="page-size-container">
-                        <select onChange={handlePage}>
+                        <select onChange={handlePage} defaultValue={"10"}>
                             <option value="5">5</option>
-                            <option value="10" selected>10</option>
+                            <option value="10">10</option>
                             <option value="15">15</option>
                             <option value="20">20</option>
                         </select>
