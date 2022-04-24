@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
@@ -9,7 +10,19 @@ import './Header.css'
 const Header = () => {
     const [products,] = useProducts()
     const [cart, setCart] = useCart(products)
-
+    const [pageCount, setPageCount] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/productsCount')
+            .then(response => response.json())
+            .then(data => {
+                const array = []
+                for (let i = 1; i <= Math.ceil(data.count / 10); i++) {
+                    array.push(i)
+                }
+                setPageCount(array)
+            })
+    }, [])
+    console.log(pageCount)
     const deleteCart = () => {
         localStorage.removeItem('cart')
         setCart([])
@@ -34,21 +47,18 @@ const Header = () => {
             <div className="header">
                 <div className='products-container'>
                     <h1>Products Available: {products.length}</h1>
+                    <h1>Pages: {pageCount.length}</h1>
                     <div className='all-products'>
                         {
                             products.map(product => <SingleProduct product={product} key={product._id} handleOnClick={handleOnClick}></SingleProduct>)
                         }
                     </div>
-
                 </div>
                 <Cart products={cart} deleteCart={deleteCart}>
                     <Link to="/overview">
                         <button className='proceed-to-overview'>Proceed to Overview</button>
                     </Link>
                 </Cart>
-            </div>
-            <div>
-                <h1>hi</h1>
             </div>
         </div>
     );
