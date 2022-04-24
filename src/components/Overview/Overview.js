@@ -8,7 +8,7 @@ import { deleteSingleItem, getCart } from '../utilities/db';
 import './Overview.css'
 
 const Overview = () => {
-    const [products, setProducts] = useProducts()
+    const [products,] = useProducts()
     const [cart, setCart] = useCart(products)
     const deleteCart = () => {
         localStorage.removeItem('cart')
