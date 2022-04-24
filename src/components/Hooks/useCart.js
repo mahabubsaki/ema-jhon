@@ -7,7 +7,7 @@ const useCart = () => {
         const storageCart = getCart()
         let storedCart = []
         const keys = Object.keys(storageCart)
-        fetch('', {
+        fetch('http://localhost:5000/productFindByKey', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(keys)
@@ -15,10 +15,10 @@ const useCart = () => {
             .then(response => response.json())
             .then(products => {
                 console.log(products);
-                for (let id in cart) {
+                for (let id in storedCart) {
                     const findById = products.find(p => p._id === id)
                     if (findById) {
-                        const quantity = cart[id]
+                        const quantity = storedCart[id]
                         findById.quantity = quantity
                         storedCart.push(findById)
                     }
