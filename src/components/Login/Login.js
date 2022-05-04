@@ -54,10 +54,6 @@ const Login = () => {
                     <button className="login" type="submit">Login</button>
                 </form>
                 <p>New to Ema-john? <Link to="/signup">Create New Account</Link></p>
-                <div className="hr-div">
-                    <p className="or">or</p>
-                </div>
-                <button className="google">Continue with google</button>
             </div>
         </div>
     );

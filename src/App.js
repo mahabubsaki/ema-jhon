@@ -10,7 +10,7 @@ import ViaFacebook from './components/ViaFacebook/ViaFacebook';
 import ViaInstagram from './components/ViaInstagram/ViaInstagram';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
-import RequireAuth from './components/RequireAuth/RequireAuth';
+
 
 function App() {
   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
 import OverViewSingleItem from '../OverviewSingleItem/OverViewSingleItem';

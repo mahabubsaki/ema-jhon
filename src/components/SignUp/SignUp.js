@@ -69,10 +69,6 @@ const SignUp = () => {
                     <button className="login" type="submit">Sign Up</button>
                 </form>
                 <p>Already have an account? <Link to="/login">Log in</Link></p>
-                <div className="hr-div">
-                    <p className="or">or</p>
-                </div>
-                <button className="google">Continue with google</button>
             </div>
         </div>
     );
