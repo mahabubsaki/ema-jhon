@@ -1,8 +1,9 @@
 .header {
   display: flex;
+  flex-direction: column-reverse;
 }
 .products-container {
-  width: 75%;
+  width: 100%;
   background-color: #f7ccac;
   padding: 0px 10px;
 }
@@ -12,8 +13,22 @@ h2 {
 }
 .all-products {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+}
+@media only screen and (max-width: 600px) {
+  .all-products {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media only screen and (min-width: 601px) {
+  .all-products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (min-width: 801px) {
+  .all-products {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 .proceed-to-overview {
   width: 80%;

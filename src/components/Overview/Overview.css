@@ -1,19 +1,19 @@
 .chekout-btn {
-    width: 80%;
-    background-color: #61e6f0 !important;
-    border:1px solid #61e6f0 !important;
-    padding:10px;
-    cursor: pointer;
-    margin: 0 auto;
+  width: 80%;
+  background-color: #61e6f0 !important;
+  border: 1px solid #61e6f0 !important;
+  padding: 10px;
+  cursor: pointer;
+  margin: 0 auto;
 }
 .chekout-btn:hover {
-    background-color: transparent !important;
-    transition: all 0.5s linear !important
+  background-color: transparent !important;
+  transition: all 0.5s linear !important;
 }
 .overview-container {
-    width: 75%;
+  width: 100%;
 }
 .overview {
-    width: 85%;
-    margin:0 auto;
+  width: 85%;
+  margin: 0 auto;
 }

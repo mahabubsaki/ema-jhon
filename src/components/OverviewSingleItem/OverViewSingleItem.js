@@ -26,7 +26,8 @@ const OverViewSingleItem = ({ item, handleSingleDelete, handleQuantity }) => {
                     <h2 title={name}>{name.length > 20 ? name.slice(0, 20) + "..." : name}</h2>
                     <h3>Price : ${price}</h3>
                     <h3>Shipping : ${shipping}</h3>
-                    <h3>Quantity : <button onClick={() => increaseQuantity(item)}>+</button>{myQuantity} <button onClick={() => decreaseQuantity(item)}>-</button></h3>
+                    <h3>Quantity</h3>
+                    <button onClick={() => increaseQuantity(item)}>+</button>{myQuantity} <button onClick={() => decreaseQuantity(item)}>-</button>
                 </div>
                 <div className="icon-container">
                     <button onClick={() => handleSingleDelete(item)}>

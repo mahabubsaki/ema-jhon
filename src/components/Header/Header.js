@@ -81,13 +81,6 @@ const Header = () => {
         <div>
             <div className="header">
                 <div className='products-container'>
-                    <h1>Products Available: {products.length}</h1>
-                    <h1>Pages: {pageCount.length}</h1>
-                    <div className='all-products'>
-                        {
-                            products.map(product => <SingleProduct product={product} key={product._id} handleOnClick={handleOnClick}></SingleProduct>)
-                        }
-                    </div>
                     <div className="all-buttons">
                         {
                             pageCount.map(page => <PageButton key={page} handleButton={handleButton} currentPage={currentPage}>{page}</PageButton>)
@@ -101,6 +94,12 @@ const Header = () => {
                             <option value="20">20</option>
                         </select>
                     </div>
+                    <div className='all-products'>
+                        {
+                            products.map(product => <SingleProduct product={product} key={product._id} handleOnClick={handleOnClick}></SingleProduct>)
+                        }
+                    </div>
+
                 </div>
                 <Cart products={cart} deleteCart={deleteCart}>
                     <Link to="/overview">

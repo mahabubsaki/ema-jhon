@@ -3,7 +3,7 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 1);
   box-shadow: inset 10px -10px 5px rgba(255, 224, 179, 1);
-  width: 500px;
+  width: 100%;
   margin: 0 auto;
 }
 .form-div {
@@ -14,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   padding: 25px 40px;
+  width: 75%;
 }
 .form-div h1 {
   font-family: 'Lato';
@@ -40,7 +41,7 @@
   color: #2a414f;
 }
 .email-div input {
-  width: 98%;
+  width: 50%;
   padding: 10px 5px;
   border-radius: 8px;
   border: 1px solid rgba(149, 160, 167, 1);
