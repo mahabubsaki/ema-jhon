@@ -23,7 +23,7 @@ const Overview = () => {
         console.log(storageCart);
         let storedCart = []
         const keys = Object.keys(storageCart)
-        fetch('http://localhost:5000/productFindByKey', {
+        fetch('https://murmuring-journey-28249.herokuapp.com/productFindByKey', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(keys)

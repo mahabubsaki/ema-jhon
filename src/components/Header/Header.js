@@ -14,7 +14,7 @@ const Header = () => {
     const [pageSize, setPageSize] = useState(10)
     const [currentPage, setCurrentPage] = useState(1)
     useEffect(() => {
-        fetch('http://localhost:5000/productsCount')
+        fetch('https://murmuring-journey-28249.herokuapp.com/productsCount')
             .then(response => response.json())
             .then(data => {
                 const array = []
@@ -25,7 +25,7 @@ const Header = () => {
             })
     }, [pageSize])
     useEffect(() => {
-        fetch(`http://localhost:5000/products?page=${currentPage - 1}&size=${pageSize}`)
+        fetch(`https://murmuring-journey-28249.herokuapp.com/products?page=${currentPage - 1}&size=${pageSize}`)
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [currentPage, pageSize])
@@ -59,7 +59,7 @@ const Header = () => {
         const storageCart = getCart()
         let storedCart = []
         const keys = Object.keys(storageCart)
-        fetch('http://localhost:5000/productFindByKey', {
+        fetch('https://murmuring-journey-28249.herokuapp.com/productFindByKey', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(keys)
