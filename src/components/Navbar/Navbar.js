@@ -31,14 +31,11 @@ const Navbar = () => {
                 <div className={`link-div ${show ? 'show' : 'hide'}`}>
                     <CustomLink to="/" className="a">Home</CustomLink>
                     <CustomLink to="/overview" className="a">Overview</CustomLink>
-                    <CustomLink to="/inventory" className="a">Inventory</CustomLink>
-                    <CustomLink to="/shipment" className="a">Shipping</CustomLink>
                     <CustomLink to="/about" className="a">About</CustomLink>
                     <CustomLink to="/contact" className="a">Contact</CustomLink>
                     {user?.uid ? '' : <> <CustomLink to="/login" className="a">Login</CustomLink>
                         <CustomLink to="/signup" className="a">Sign Up</CustomLink></>}
                     {user?.uid ? <>
-                        <CustomLink to="/profile" className="a">{user?.email}</CustomLink>
                         <button className="a" onClick={logOut}>Log Out</button>
                     </> : ''}
                 </div>

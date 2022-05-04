@@ -42,11 +42,17 @@ const Overview = () => {
                 setCart(storedCart)
             })
     }
+    const handleProceed = () => {
+        localStorage.removeItem('cart')
+        setCart([])
+        window.alert('Product Ordered Successfuly')
+    }
     return (
         <div>
             <div className="header">
                 <div className="overview-container">
                     <div className="overview">
+                        {cart.length === 0 && <p>No product added</p>}
                         {
                             cart.map(pd => <OverViewSingleItem item={pd} key={pd._id} handleSingleDelete={handleSingleDelete}
                                 handleQuantity={handleQuantity}
@@ -55,9 +61,7 @@ const Overview = () => {
                     </div>
                 </div>
                 <Cart products={cart} deleteCart={deleteCart}>
-                    <Link to="/shipment">
-                        <button className='chekout-btn'>Proceed to buy</button>
-                    </Link>
+                    <button className='chekout-btn' disabled={!cart.length > 0} onClick={handleProceed}>Proceed to buy</button>
                 </Cart>
             </div>
         </div>
