@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from '../../Logo.svg'
 import './Navbar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,7 @@ import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const [show, setShow] = useState(false)
     const navigate = useNavigate()
     const [user] = useAuthState(auth);
     const logOut = () => {
@@ -23,11 +24,11 @@ const Navbar = () => {
                     <div className='logo-div'>
                         <img src={logo} alt="logo" />
                     </div>
-                    <button id="navicon">
+                    <button id="navicon" onClick={() => setShow(!show)}>
                         <FontAwesomeIcon icon={faNavicon}></FontAwesomeIcon>
                     </button>
                 </div>
-                <div className='link-div'>
+                <div className={`link-div ${show ? 'show' : 'hide'}`}>
                     <CustomLink to="/" className="a">Home</CustomLink>
                     <CustomLink to="/overview" className="a">Overview</CustomLink>
                     <CustomLink to="/inventory" className="a">Inventory</CustomLink>

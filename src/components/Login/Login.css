@@ -3,7 +3,7 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 1);
   box-shadow: inset 10px -10px 5px rgba(255, 224, 179, 1);
-  width: 100%;
+  width: 75%;
   margin: 0 auto;
 }
 .form-div {
@@ -26,7 +26,7 @@
   color: #2a414f;
 }
 .email-div {
-  width: 415px;
+  width: 100%;
   margin-bottom: 20px;
 }
 .email-div label {
@@ -41,7 +41,7 @@
   color: #2a414f;
 }
 .email-div input {
-  width: 50%;
+  width: 100%;
   padding: 10px 5px;
   border-radius: 8px;
   border: 1px solid rgba(149, 160, 167, 1);

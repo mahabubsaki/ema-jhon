@@ -4,6 +4,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
+  position: relative;
 }
 .logo-div {
   width: 20%;
@@ -37,6 +38,12 @@ button#navicon {
   display: flex;
   justify-content: space-between;
 }
+.hide {
+  bottom: 100%;
+}
+.show {
+  top: 43px;
+}
 @media (min-width: 0px) and (max-width: 700px) {
   nav {
     flex-direction: column;
@@ -45,12 +52,10 @@ button#navicon {
   .link-div {
     flex-direction: column;
     width: 100%;
-    display: none;
+    position: absolute;
   }
-  .link-div a {
+  .link-div .a {
     text-align: center;
-    padding: 10px;
-    border: none;
     margin: 0px;
   }
   .link-div a:hover {
@@ -63,6 +68,7 @@ button#navicon {
   button#navicon {
     display: block;
     position: relative;
+    font-size: 20px !important;
     right: 0px;
     background-color: #d9ce3f;
     border: none;
